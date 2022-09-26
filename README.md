@@ -1,3 +1,3 @@
 # Rotating Cube
 
-Its just a vube that rotates!
+Its just a cube that rotates!
