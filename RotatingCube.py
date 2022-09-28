@@ -17,9 +17,6 @@ xRotationSpeed = 0.03
 yRotationspeed = 0.06
 zRotationSpeed = 0.09
 
-# This program stores XYZ coordinates in lists, with the X coordinate
-# at index 0, Y at 1, and Z at 2. These constants make our code more
-# readable when accessing the coordinates in these lists.
 X = 0
 Y = 1
 Z = 2
@@ -85,19 +82,19 @@ def line(x1, y1, x2, y2):
 
 def rotate_point(x, y, z, ax, ay, az):
 
-    # Rotate around x axis:
+    # x axis:
     rotated_x = x
     rotated_y = (y * math.cos(ax)) - (z * math.sin(ax))
     rotated_z = (y * math.sin(ax)) + (z * math.cos(ax))
     x, y, z = rotated_x, rotated_y, rotated_z
 
-    # Rotate around y axis:
+    # y axis:
     rotated_x = (z * math.sin(ay)) + (x * math.cos(ay))
     rotated_y = y
     rotated_z = (z * math.cos(ay)) - (x * math.sin(ay))
     x, y, z = rotated_x, rotated_y, rotated_z
 
-    # Rotate around z axis:
+    # z axis:
     rotated_x = (x * math.cos(az)) - (y * math.sin(az))
     rotated_y = (x * math.sin(az)) + (y * math.cos(az))
     rotated_z = z
@@ -109,14 +106,7 @@ def adjustPoint(point):
     return (int(point[X] * scalex + translateX),
             int(point[Y] * scaley + translateY))
 
-cubecorners = [[-1, -1, -1], # Point 0
-                [ 1, -1, -1], # Point 1
-                [-1, -1,  1], # Point 2
-                [ 1, -1,  1], # Point 3
-                [-1,  1, -1], # Point 4
-                [ 1,  1, -1], # Point 5
-                [-1,  1,  1], # Point 6
-                [ 1,  1,  1]] # Point 7
+cubecorners = [[-1, -1, -1], [ 1, -1, -1], [-1, -1,  1], [ 1, -1,  1], [-1,  1, -1], [ 1,  1, -1], [-1,  1,  1], [ 1,  1,  1]]
 
 rotatedCorners = [None, None, None, None, None, None, None, None]
 
@@ -159,5 +149,6 @@ try:
         os.system('cls')
 
 except KeyboardInterrupt:
+    os.system('cls')
     print('STOPPED')
     sys.exit()
